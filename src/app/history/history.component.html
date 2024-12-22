@@ -1,0 +1,17 @@
+<div class="navbar">
+  <ul>
+    <li><button>Inicio</button></li>
+    <li><button (click)="irCamera()">Camera</button></li>
+  </ul>
+</div>
+
+<div class="history-container">
+  <h2>Historial de Análisis</h2>
+  <div *ngFor="let item of history" class="history-item">
+    <img [src]="item.imageUrl" alt="Captured Image" />
+    <div class="details">
+      <p><strong>Etiquetas:</strong> {{ item.labels.join(', ') }}</p>
+      <p><strong>Fecha:</strong> {{ item.date | date: 'short' }}</p>
+    </div>
+  </div>
+</div>

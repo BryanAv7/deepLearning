@@ -1,0 +1,126 @@
+/* Estilo para el botón de subir imagen */
+.upload-btn {
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;  /* Alinea el botón en línea */
+  margin-left: 10px;  /* Añade un margen izquierdo */
+}
+
+.upload-btn:hover {
+  background-color: #45a049; /* Cambia el color de fondo al pasar el ratón */
+  transform: scale(1.05); /* Efecto de ampliación al pasar el ratón */
+}
+
+/* Asegúrate de que el input tipo file esté oculto */
+input[type="file"] {
+  display: none; /* Oculta el campo de selección de archivos */
+}
+
+/* Estilo general para la barra de navegación y otros botones */
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  padding: 10px 20px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+}
+
+.navbar li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px; /* Agranda el tamaño de la letra */
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #4CAF50;
+}
+
+/* Estilos de la caja contenedora */
+.container {
+  text-align: center; /* Centra todo el contenido */
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.image-container {
+  margin-top: 20px;
+  border: 2px dashed #4CAF50;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+img {
+  margin-top: 10px;
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+
+img:hover {
+  border-color: #4CAF50;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
