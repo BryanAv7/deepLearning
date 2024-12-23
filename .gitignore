@@ -40,3 +40,18 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Nuevo
+
+# Ignorar el entorno virtual
+.venv/
+backend/venv/
+
+# Ignorar archivos grandes o innecesarios
+*.dylib
+*.h5
+*.pickle
+*.log
+
+# Archivos específicos de macOS
+.DS_Store
