@@ -1,0 +1,89 @@
+[
+    {
+        "image_path": "static/images/2024-12-22T17:34:55.490964.png",
+        "labels": [
+            "bench"
+        ],
+        "timestamp": "2024-12-22T17:34:55.490964"
+    },
+    {
+        "image_path": "static/images/2024-12-22T17:36:55.862551.png",
+        "labels": [
+            "person"
+        ],
+        "timestamp": "2024-12-22T17:36:55.862551"
+    },
+    {
+        "image_path": "static/images/2024-12-22T17:43:50.764253.png",
+        "labels": [
+            "dog"
+        ],
+        "timestamp": "2024-12-22T17:43:50.764253"
+    },
+    {
+        "image_path": "static/images/2024-12-22T17:53:22.071114.png",
+        "labels": [
+            "stop sign"
+        ],
+        "timestamp": "2024-12-22T17:53:22.071114"
+    },
+    {
+        "image_path": "static/images/2024-12-22T17:53:40.641508.png",
+        "labels": [
+            "bird"
+        ],
+        "timestamp": "2024-12-22T17:53:40.641508"
+    },
+    {
+        "image_path": "static/images/2024-12-22T17:53:55.389372.png",
+        "labels": [
+            "person"
+        ],
+        "timestamp": "2024-12-22T17:53:55.389372"
+    },
+    {
+        "image_path": "static/images/2024-12-22T18:09:08.666603.png",
+        "labels": [
+            "bench"
+        ],
+        "timestamp": "2024-12-22T18:09:08.666603"
+    },
+    {
+        "image_path": "static/images/2024-12-22T18:10:03.675654.png",
+        "labels": [
+            "bench"
+        ],
+        "timestamp": "2024-12-22T18:10:03.675654"
+    },
+    {
+        "image_path": "static/images/2024-12-22T18:23:40.590225.png",
+        "labels": [
+            "person"
+        ],
+        "timestamp": "2024-12-22T18:23:40.590225"
+    },
+    {
+        "image_path": "static/images/2024-12-22T18:24:42.603066.png",
+        "labels": [
+            "person"
+        ],
+        "timestamp": "2024-12-22T18:24:42.603066"
+    },
+    {
+        "image_path": "static/images/2024-12-22T18:31:09.548515.png",
+        "labels": [
+            "stop sign"
+        ],
+        "timestamp": "2024-12-22T18:31:09.548515"
+    },
+    {
+        "image_path": "static/images/2024-12-22T18:34:42.360127.png",
+        "labels": [
+            "banana"
+        ],
+        "timestamp": "2024-12-22T18:34:42.360127"
+    }
+]{"image_path": "static/images/2024-12-22T18:43:12.989544.png", "labels": ["bird", "bench", "potted plant", "person", "boat"], "timestamp": "2024-12-22T18:43:12.989544"}
+{"image_path": "static/images/2024-12-22T19:03:16.563748.png", "labels": ["person", "airplane", "sink", "chair", "cup"], "timestamp": "2024-12-22T19:03:16.563748"}
+{"image_path": "static/images/2024-12-22T21:53:33.620811.png", "labels": ["car", "truck", "motorcycle", "person", "stop sign"], "timestamp": "2024-12-22T21:53:33.620811"}
+{"image_path": "static/images/2024-12-22T22:22:06.477368.png", "labels": ["bird", "person", "airplane", "bench", "sheep"], "timestamp": "2024-12-22T22:22:06.477368"}

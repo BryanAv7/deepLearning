@@ -10,6 +10,10 @@
   <p>Utiliza este sistema para capturar una imagen y procesarla mediante algoritmos de Machine Learning. Haz clic en el botón para empezar.</p>
   
   <div class="button-container">
+
+    <!-- Botón para activar el reconocimiento de voz -->
+    
+
     <!-- Botón para capturar imagen desde la cámara -->
     <button (click)="captureImage($event)" class="capture-btn">Tomar Foto</button>
     
@@ -24,4 +28,12 @@
     <img [src]="imageUrl" alt="Captured Image" />
     <p>Esta imagen será procesada para el análisis. Si deseas capturar otra imagen, simplemente presiona el botón nuevamente.</p>
   </div>
+
+  <!-- Botón para procesar la imagen -->
+<button (click)="processImage()" class="process-btn">Procesar Imagen</button>
 </div>
+
+
+
+
+

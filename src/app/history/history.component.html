@@ -7,11 +7,23 @@
 
 <div class="history-container">
   <h2>Historial de Análisis</h2>
-  <div *ngFor="let item of history" class="history-item">
-    <img [src]="item.imageUrl" alt="Captured Image" />
-    <div class="details">
-      <p><strong>Etiquetas:</strong> {{ item.labels.join(', ') }}</p>
-      <p><strong>Fecha:</strong> {{ item.date | date: 'short' }}</p>
+  <div *ngIf="history.length > 0">
+    <div *ngFor="let item of history" class="history-item">
+      <h3>Imagen procesada: {{ item.timestamp }}</h3>
+      <img [src]="item.imageUrl" alt="Imagen Procesada" width="100" />
+      <div class="details">
+        <p><strong>Etiquetas:</strong> {{ item.labels.join(', ') }}</p>
+        <p><strong>Fecha:</strong> {{ item.timestamp | date: 'short' }}</p>
+        <!-- Botón de bocina -->
+        <button (click)="speak(item)">
+          <i class="fa fa-volume-up" aria-hidden="true"></i> Escuchar
+        </button>
+      </div>
     </div>
   </div>
 </div>
+
+<div *ngIf="history.length === 0">
+  <p>No hay imágenes procesadas aún.</p>
+</div>
+
