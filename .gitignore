@@ -53,5 +53,12 @@ backend/venv/
 *.pickle
 *.log
 
+# Permitir archivos importantes
+!backend/app.py
+
+# Ignorar contenido dentro de static/images pero no las carpetas
+backend/static/images/*
+!backend/static/images/.gitkeep
+
 # Archivos específicos de macOS
 .DS_Store

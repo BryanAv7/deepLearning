@@ -7,7 +7,7 @@ import { Observable, tap } from 'rxjs';
 })
 export class ImageService {
 
-  private apiUrl = 'http://127.0.0.1:5000/process_image';  // Asegúrate de que la URL corresponda al endpoint de Flask
+  private apiUrl = 'http://127.0.0.1:5000/process_image'; // URL del BackEnd
 
   constructor(private http: HttpClient) { }
 
