@@ -1,0 +1,37 @@
+<!-- Animación de Bienvenida -->
+<div class="welcome-screen" *ngIf="showWelcome">
+    <div class="welcome-message">
+      <h1>Bienvenido a la revolución del aprendizaje profundo</h1>
+      <p>Potencia tu visión con inteligencia artificial.</p>
+    </div>
+  </div>
+  
+  <!-- Contenido Principal (Se muestra después de la animación) -->
+  <div *ngIf="!showWelcome">
+    <header>
+      <h2>Descubre las capacidades de nuestra plataforma</h2>
+    </header>
+  
+    <section class="features">
+      <div class="feature">
+        <h3>Análisis de Imágenes</h3>
+        <p>Reconoce objetos en tiempo real con precisión.</p>
+        <button>Prueba ahora</button>
+      </div>
+      <div class="feature">
+        <h3>Historial de Análisis</h3>
+        <p>Accede a tus análisis anteriores rápidamente.</p>
+        <button>Ver historial</button>
+      </div>
+      <div class="feature">
+        <h3>Ajustes y Configuración</h3>
+        <p>Personaliza tu experiencia con facilidad.</p>
+        <button>Configura tu app</button>
+      </div>
+    </section>
+  
+    <section class="about">
+      <p>Transformamos el aprendizaje profundo en herramientas accesibles para todos, con un enfoque en la simplicidad y eficacia.</p>
+    </section>
+  </div>
+  

@@ -1,86 +1,72 @@
-.navbar {
-  background-color: #333;
-  overflow: hidden;
-  padding: 10px 20px;
-}
-
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: flex-start; /* Alinea los elementos a la izquierda */
-}
-
-.navbar li {
-  display: inline;
-  margin-right: 20px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: white;
-  font-size: 100px;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.navbar a:hover {
-  background-color: #4CAF50;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-  background-color: #45a049;
-  transform: scale(1.05);
-}
-
-/* Estilo para la sección de historial */
 .history-container {
-  padding: 20px;
-  background-color: #f4f4f4;
+  padding-bottom: 60px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
 .history-container h2 {
   text-align: center;
-  color: #333;
   font-size: 24px;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .history-item {
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  transition: transform 0.2s ease;
+}
+
+.history-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .history-item img {
-  width: 100%;
-  height: auto;
-  max-width: 500px;
   border-radius: 8px;
-  display: block;
-  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.history-item .details {
-  font-size: 14px;
+.details {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.details p {
+  margin: 5px 0;
   color: #555;
 }
 
-.history-item .details strong {
-  color: #333;
+.details ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.details button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.details button:hover {
+  background-color: #0056b3;
+}
+
+.details button i {
+  margin-right: 5px;
 }

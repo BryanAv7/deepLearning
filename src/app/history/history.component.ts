@@ -3,9 +3,14 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ImageService } from '../services/image.service';
 
+interface Label {
+  label: string;
+  score: number;
+}
+
 interface HistoryItem {
   imageUrl: string;
-  labels: string[];
+  labels: Label[];
   timestamp: string;
 }
 
@@ -21,24 +26,11 @@ export class HistoryComponent implements OnInit{
   public history: HistoryItem [] = [];
 
   constructor(private router: Router, private imageService: ImageService, private cdr: ChangeDetectorRef) {}
-  /*
-  //Desde el state
-  ngOnInit(): void {
-    const navigation = this.router.getCurrentNavigation();
-    const state = navigation?.extras['state'];  // Acceder con corchetes
-
-    console.log('State:', state);
-
-    if (state && state['historyItem']) {  // Acceder con corchetes
-      console.log('History Item:', state['historyItem']);
-      this.history.push(state['historyItem']);  // Ahora TypeScript reconoce el tipo
-    }
-  }
-  */
 
   ngOnInit(): void {
     if (typeof window !== 'undefined' && window.localStorage) {
       // Solo acceder a localStorage si estamos en el navegador
+      //localStorage.clear();
       try {
         const history = JSON.parse(localStorage.getItem('history') || '[]');  // Cambié 'historyItem' por 'history'
         console.log('History:', history);
@@ -64,15 +56,18 @@ export class HistoryComponent implements OnInit{
     this.router.navigate(['/camera']);  // Redirige a la ruta de inicio
   }
 
-
   // Método para leer los resultados por voz
-  speak(historyItem: any): void {
+  speak(item: HistoryItem): void {
     const speech = new SpeechSynthesisUtterance();
 
     // Generar el texto a leer
-    const labelsText = `Etiquetas detectadas: ${historyItem.labels.join(', ')}`;
-    const dateText = `Fecha de procesamiento: ${new Date(historyItem.timestamp).toLocaleString()}`;
-    speech.text = `${labelsText}. ${dateText}.`;
+    const labelsText = item.labels
+      .map(labelObj => `${labelObj.label} con un porcentaje de ${labelObj.score.toFixed(2)}%`)
+      .join(', ');
+
+    const dateText = `Fecha de procesamiento: ${new Date(item.timestamp).toLocaleString()}`;
+
+    speech.text = `Etiquetas detectadas: ${labelsText}. ${dateText}.`;
 
     // Configuración de voz y velocidad
     speech.lang = 'es-ES'; // Idioma español

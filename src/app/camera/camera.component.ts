@@ -1,79 +1,30 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit} from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component} from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-camera',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './camera.component.html',
-  styleUrl: './camera.component.scss'
+  styleUrl: './camera.component.scss',
 })
 
 export class CameraComponent {//implements OnInit{
   public imageUrl: string | undefined;
   public selectedImage: File | null = null;  // Para guardar la imagen seleccionada
-  //private recognition: any; // Instancia de SpeechRecognition
 
   constructor(private http: HttpClient, private router: Router) {}
-  
-  /*
-  ngOnInit(): void {
-    // Inicializar el reconocimiento de voz
-    this.initVoiceRecognition();
-  }
-
-  // Configuración del reconocimiento de voz
-  initVoiceRecognition(): void {
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    if (!SpeechRecognition) {
-      console.error('API de reconocimiento de voz no soportada en este navegador.');
-      return;
-    }
-
-    this.recognition = new SpeechRecognition();
-    this.recognition.lang = 'en-US'; // Idioma español
-    this.recognition.continuous = false; // Escuchar una sola frase
-    this.recognition.interimResults = false; // Obtener solo los resultados finales
-
-    // Evento cuando se detecta un comando de voz
-    this.recognition.onresult = (event: any) => {
-      const transcript = event.results[0][0].transcript.trim().toLowerCase();
-      console.log('Comando de voz detectado:', transcript);
-
-      // Verificar si el comando es "explorar"
-      if (transcript === 'home') {
-        this.captureImageFromVoice(); // Llamar al método de captura de imagen
-      } else {
-        console.log('Comando no reconocido.');
-      }
-    };
-
-    this.recognition.onerror = (event: any) => {
-      console.error('Error en el reconocimiento de voz:', event.error);
-    };
-  }
-
-  // Método para activar el reconocimiento de voz
-  startListening(): void {
-    if (this.recognition) {
-      this.recognition.start();
-      console.log('Reconocimiento de voz activado. Di "Explorar".');
-    }
-  }
-
-  // Método para capturar la imagen desde la voz
-  captureImageFromVoice(): void {
-    //this.captureImage(event); // Llama al método de captura existente
-    console.log("Funciona!!!")
-  }
-
-  */
 
   // Método para navegar a la página de Inicio (o Login si lo prefieres)
   irHistory(): void {
     this.router.navigate(['/history']);  // Redirige a la ruta de inicio
+  }
+
+  irHome(): void {
+    this.router.navigate(['/home']);  // Redirige a la ruta de inicio
   }
 
   captureImage(event: any) {

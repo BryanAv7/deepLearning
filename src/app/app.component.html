@@ -1,1 +1,55 @@
+<!--Encabezado-->
+
+<div class="navbar">
+    <ul>
+        <li><button (click)="irHome()">Inicio</button></li>
+        <li><button (click)="irCamera()">Camara</button></li>
+        <li><button (click)="irHistory()">Historial</button></li>
+    </ul>
+</div>
+
+<!--Cuerpo-->
+
 <router-outlet />
+
+<!--Pie de pagina-->
+
+<footer class="footer">
+    <div class="footer-container">
+    <div class="footer-section">
+        <h3>Acerca de Nosotros</h3>
+        <p>
+            Somos una empresa dedicada a ofrecer soluciones tecnológicas innovadoras para personas con discapacidades visuales.
+        </p>
+    </div>
+
+    <div class="footer-section">
+        <h3>Enlaces Rápidos</h3>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/camera">Cámara</a></li>
+            <li><a href="/history">Historial</a></li>
+            <li><a href="/contact">Contacto</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-section">
+        <h3>Contacto</h3>
+        <p>Email: kmorochor1&#64;ups.edu.ec</p>
+        <p>Teléfono: +593 993650209</p>
+    </div>
+
+    <div class="footer-section">
+        <h3>Redes Sociales</h3>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/bryanismael.avila" class="social-icon"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Universidad Politencia Salesiana - Todos los derechos reservados.</p>
+    </div>
+</footer>

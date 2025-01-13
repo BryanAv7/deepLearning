@@ -1,18 +1,15 @@
-<div class="navbar">
-  <ul>
-    <li><button>Inicio</button></li>
-    <li><button (click)="irCamera()">Camera</button></li>
-  </ul>
-</div>
-
 <div class="history-container">
-  <h2>Historial de Análisis</h2>
   <div *ngIf="history.length > 0">
     <div *ngFor="let item of history" class="history-item">
       <h3>Imagen procesada: {{ item.timestamp }}</h3>
       <img [src]="item.imageUrl" alt="Imagen Procesada" width="100" />
       <div class="details">
-        <p><strong>Etiquetas:</strong> {{ item.labels.join(', ') }}</p>
+        <p><strong>Etiquetas:</strong></p>
+        <ul>
+          <li *ngFor="let etiqueta of item.labels">
+            {{ etiqueta.label }} - {{ etiqueta.score | number:'1.2-2' }}%
+          </li>
+        </ul>
         <p><strong>Fecha:</strong> {{ item.timestamp | date: 'short' }}</p>
         <!-- Botón de bocina -->
         <button (click)="speak(item)">
@@ -26,4 +23,3 @@
 <div *ngIf="history.length === 0">
   <p>No hay imágenes procesadas aún.</p>
 </div>
-

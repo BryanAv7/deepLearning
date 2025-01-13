@@ -5,6 +5,7 @@ import numpy as np
 import tensorflow as tf
 import ast
 import json
+import psycopg2 #Modulo para conectarnos con la base de datos
 
 from flask_cors import CORS
 from flask import Flask, request, jsonify  # type: ignore
@@ -15,6 +16,17 @@ from keras.layers import Dense, Conv2D, Flatten # type: ignore
 # Inicializar Flask y cargar modelo
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:4200"])  # Habilita CORS para todas las rutas
+
+# Función para conectar a PostgreSQL
+def get_db_connection():
+    conn = psycopg2.connect(
+        dbname='historydb',
+        user='admin',  
+        password='root',  
+        host='localhost',
+        port='5432'
+    )
+    return conn
 
 def load_model_and_preprocessing():
     """
@@ -53,11 +65,18 @@ def decode_predictions(predictions, labels_map):
     Decodifica las predicciones para obtener las etiquetas más probables.
     """
     try:
-        # Cambiamos para obtener las top-N etiquetas si es necesario
-        num_top_labels = 5  # Cuántas etiquetas mostrar (ajusta según lo necesites)
+        
+        num_top_labels = 5  # Numero de etiquetas a mostrar
         top_labels_idx = np.argsort(predictions[0])[::-1][:num_top_labels]  # Obtiene los índices de las N etiquetas más altas
+        
+        results = []
+        for idx in top_labels_idx:
+            label = labels_map[idx]
+            score = round(float(predictions[0][idx]) * 100, 2)  # Convertir a porcentaje con 2 decimales
+            results.append({"label": label, "score": score})
         labels = [labels_map[idx] for idx in top_labels_idx]  # Convertir a nombres de las etiquetas
-        return labels
+        
+        return results
     except Exception as e:
         raise ValueError(f"Error al decodificar las predicciones: {e}") from e
 
@@ -83,27 +102,31 @@ fix_history_json()
 
 def save_image_to_history(image_file, labels):
     """
-    Guarda la imagen procesada y los resultados en el historial.
+    Guarda la imagen procesada y los resultados en la base de datos.
     """
     try:
-        timestamp = datetime.datetime.now().isoformat()
+        timestamp = datetime.datetime.now()
         image_path = os.path.join('static/images', f'{timestamp}.png')
         os.makedirs(os.path.dirname(image_path), exist_ok=True)
         
-        # Abrir y guardar correctamente como PNG
+        # Guardar la imagen
         image = Image.open(image_file)
         image.convert('RGB').save(image_path, format='PNG')
         
-        # Guardar el historial
-        history_entry = {
-            'image_path': image_path,
-            'labels': labels,
-            'timestamp': timestamp
-        }
-        with open('history.json', 'a', encoding='utf-8') as f:
-            f.write(json.dumps(history_entry) + '\n')
+        # Insertar el registro en la base de datos
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(
+            'INSERT INTO history (image_path, labels, timestamp) VALUES (%s, %s, %s)',
+            (image_path, json.dumps(labels), timestamp)
+        )
+        conn.commit()
+        cursor.close()
+        conn.close()
+        
     except Exception as e:
         raise IOError(f"Error al guardar la imagen o el historial: {e}") from e
+
 
 try:
     model, labels_map = load_model_and_preprocessing()  # labels_map debería ser un diccionario
