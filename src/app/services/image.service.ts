@@ -7,7 +7,7 @@ import { Observable, tap } from 'rxjs';
 })
 export class ImageService {
 
-  private apiUrl = 'http://127.0.0.1:5000/process_image'; // URL del BackEnd
+  private apiUrl = 'http://127.0.0.1:5001/process_image'; // URL del BackEnd
 
   constructor(private http: HttpClient) { }
 

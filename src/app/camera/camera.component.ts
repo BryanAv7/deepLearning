@@ -91,7 +91,7 @@ export class CameraComponent {//implements OnInit{
       const formData = new FormData();
       formData.append('image', this.selectedImage);
 
-      this.http.post('http://127.0.0.1:5000/process_image', formData).subscribe(
+      this.http.post('http://127.0.0.1:5001/process_image', formData).subscribe(
         (response: any) => {
           console.log('Resultado:', response);
 

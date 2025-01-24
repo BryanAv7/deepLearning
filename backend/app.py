@@ -14,8 +14,10 @@ from tensorflow.keras.models import load_model, Sequential  # type: ignore
 from keras.layers import Dense, Conv2D, Flatten # type: ignore
 
 # Inicializar Flask y cargar modelo
-app = Flask(__name__)
-CORS(app, origins=["http://localhost:4200"])  # Habilita CORS para todas las rutas
+app = Flask(__name__) # Crear la app de flask
+# CORS(app, origins=["http://localhost:4200", "http://172.16.214.207:4200"])
+CORS(app, resources={r"/*": {"origins":"*"}})
+
 
 # Función para conectar a PostgreSQL
 def get_db_connection():
@@ -151,7 +153,7 @@ def process_image():
         image_array = preprocess_image(image)
         predictions = model.predict(image_array)
         labels = decode_predictions(predictions, labels_map)  # Pasa labels_map aquí
-        image_url = f'http://127.0.0.1:5000/static/images/{timestamp}.png'
+        image_url = f'http://127.0.0.1:5001/static/images/{timestamp}.png'
         save_image_to_history(image_file, labels)
         return jsonify({
             'imageUrl': image_url,  # Incluir la URL en la respuesta
@@ -163,5 +165,5 @@ def process_image():
         return jsonify({"error": f"Error al procesar la imagen: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5001)
  

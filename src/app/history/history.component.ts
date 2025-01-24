@@ -58,9 +58,10 @@ export class HistoryComponent implements OnInit{
 
   // Método para leer los resultados por voz
   speak(item: HistoryItem): void {
-    const speech = new SpeechSynthesisUtterance();
+    // Web Speech API
+    const speech = new SpeechSynthesisUtterance(); //API integrada directamente en los navegadores modernos llamada Web Speech API,
 
-    // Generar el texto a leer
+    // Generación del texto
     const labelsText = item.labels
       .map(labelObj => `${labelObj.label} con un porcentaje de ${labelObj.score.toFixed(2)}%`)
       .join(', ');
@@ -74,7 +75,10 @@ export class HistoryComponent implements OnInit{
     speech.rate = 1; // Velocidad normal
     speech.pitch = 1; // Tono normal
 
-    // Leer en voz alta
+    //Voces
+    //window.speechSynthesis.getVoices()
+
+    // Reproducción de la voz
     window.speechSynthesis.speak(speech);
   }
 
